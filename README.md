@@ -154,9 +154,8 @@ the specified range and will generate a benchmark for each such argument.
 BENCHMARK(BM_memcpy)->Range(8, 8<<10);
 ```
 
-By default the arguments in the range are generated in multiples of eight and
-the command above selects [ 8, 64, 512, 4k, 8k ]. In the following code the
-range multiplier is changed to multiples of two.
+By default the generated arguments consist of the specified lower and upper bound, and all powers of eight between these two. In the example above, the arguments generated are [ 8, 64, 512, 4k, 8k ]. In the following code the
+range multiplier is changed to select all powers of two in the given range:
 
 ```c++
 BENCHMARK(BM_memcpy)->RangeMultiplier(2)->Range(8, 8<<10);
